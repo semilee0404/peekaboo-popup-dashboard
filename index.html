@@ -120,6 +120,29 @@
     .target-numbers .current { font-size: 28px; }
     .day-bars { grid-template-columns: repeat(2, 1fr); }
     .highlight-items { grid-template-columns: 1fr 1fr; }
+    .header-inner { flex-direction: column; gap: 12px; text-align: center; }
+    .header { padding: 20px 0; }
+    .day-compare, .target-section, .highlight-card, .action-section { padding: 20px; }
+    .card { padding: 16px; }
+    .target-header { flex-direction: column; gap: 12px; }
+    .target-numbers { text-align: left; }
+    .day-bar-legend { flex-wrap: wrap; gap: 8px; }
+    .kpi-card { padding: 16px 18px; }
+    .kpi-label { font-size: 11px; }
+    .kpi-sub { font-size: 11px; }
+    /* 베스트셀러: 일별 컬럼 숨기고 카드형 */
+    .table-header { display: none; }
+    .table-row { flex-wrap: wrap; padding: 14px 0; gap: 6px 12px; }
+    .table-row .daily-cell { display: none; }
+    .product-name { flex: unset; width: calc(100% - 44px); font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .metric.cum-qty { width: auto !important; }
+    .metric.cum-rev { width: auto !important; font-size: 13px; }
+    .rank { width: 26px; height: 26px; font-size: 12px; }
+    .mobile-daily { display: flex !important; width: 100%; padding-left: 40px; gap: 6px; flex-wrap: wrap; font-size: 11px; color: var(--text-dim); }
+    .mobile-daily span { background: rgba(255,255,255,0.04); padding: 2px 6px; border-radius: 4px; }
+    /* 급상승/급하락 테이블 모바일 */
+    .table-row .metric { font-size: 13px; }
+    .tag { font-size: 10px; padding: 2px 7px; }
   }
 </style>
 </head>
@@ -422,74 +445,84 @@
     <div class="table-header">
       <div style="width:28px">#</div>
       <div style="flex:1">상품명</div>
-      <div style="width:40px;text-align:right">D1</div>
-      <div style="width:40px;text-align:right">D2</div>
-      <div style="width:40px;text-align:right">D3</div>
-      <div style="width:40px;text-align:right">D4</div>
-      <div style="width:40px;text-align:right">D5</div>
+      <div class="daily-cell" style="width:40px;text-align:right">D1</div>
+      <div class="daily-cell" style="width:40px;text-align:right">D2</div>
+      <div class="daily-cell" style="width:40px;text-align:right">D3</div>
+      <div class="daily-cell" style="width:40px;text-align:right">D4</div>
+      <div class="daily-cell" style="width:40px;text-align:right">D5</div>
       <div style="width:50px;text-align:right">누적</div>
       <div style="width:80px;text-align:right">누적매출</div>
     </div>
     <div class="table-row">
       <div class="rank gold">1</div>
       <div class="product-name">보니 블루머</div>
-      <div class="metric" style="width:40px;color:var(--text)">51</div><div class="metric" style="width:40px;color:var(--text)">39</div><div class="metric" style="width:40px;color:var(--text)">46</div><div class="metric" style="width:40px;color:var(--text)">57</div><div class="metric" style="width:40px;color:var(--text)">52</div>
-      <div class="metric" style="width:50px;font-weight:700">245</div>
-      <div class="metric" style="width:80px;color:var(--accent-light)">6,370,000</div>
+      <div class="metric daily-cell" style="width:40px">51</div><div class="metric daily-cell" style="width:40px">39</div><div class="metric daily-cell" style="width:40px">46</div><div class="metric daily-cell" style="width:40px">57</div><div class="metric daily-cell" style="width:40px">52</div>
+      <div class="metric cum-qty" style="width:50px;font-weight:700">245</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">6,370,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:51</span><span>D2:39</span><span>D3:46</span><span>D4:57</span><span>D5:52</span></div>
     </div><div class="table-row">
       <div class="rank silver">2</div>
       <div class="product-name">디져트세트</div>
-      <div class="metric" style="width:40px;color:var(--text)">26</div><div class="metric" style="width:40px;color:var(--text)">16</div><div class="metric" style="width:40px;color:var(--text)">23</div><div class="metric" style="width:40px;color:var(--text)">23</div><div class="metric" style="width:40px;color:var(--text)">9</div>
-      <div class="metric" style="width:50px;font-weight:700">97</div>
-      <div class="metric" style="width:80px;color:var(--accent-light)">5,141,000</div>
+      <div class="metric daily-cell" style="width:40px">26</div><div class="metric daily-cell" style="width:40px">16</div><div class="metric daily-cell" style="width:40px">23</div><div class="metric daily-cell" style="width:40px">23</div><div class="metric daily-cell" style="width:40px">9</div>
+      <div class="metric cum-qty" style="width:50px;font-weight:700">97</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">5,141,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:26</span><span>D2:16</span><span>D3:23</span><span>D4:23</span><span>D5:9</span></div>
     </div><div class="table-row">
       <div class="rank bronze">3</div>
       <div class="product-name">쇼콜라 티셔츠</div>
-      <div class="metric" style="width:40px;color:var(--text)">50</div><div class="metric" style="width:40px;color:var(--text)">40</div><div class="metric" style="width:40px;color:var(--text)">42</div><div class="metric" style="width:40px;color:var(--text)">49</div><div class="metric" style="width:40px;color:var(--text)">38</div>
-      <div class="metric" style="width:50px;font-weight:700">219</div>
-      <div class="metric" style="width:80px;color:var(--accent-light)">4,818,000</div>
+      <div class="metric daily-cell" style="width:40px">50</div><div class="metric daily-cell" style="width:40px">40</div><div class="metric daily-cell" style="width:40px">42</div><div class="metric daily-cell" style="width:40px">49</div><div class="metric daily-cell" style="width:40px">38</div>
+      <div class="metric cum-qty" style="width:50px;font-weight:700">219</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">4,818,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:50</span><span>D2:40</span><span>D3:42</span><span>D4:49</span><span>D5:38</span></div>
     </div><div class="table-row">
       <div class="rank normal">4</div>
       <div class="product-name">제제_블루머</div>
-      <div class="metric" style="width:40px;color:var(--text)">35</div><div class="metric" style="width:40px;color:var(--text)">28</div><div class="metric" style="width:40px;color:var(--text)">26</div><div class="metric" style="width:40px;color:var(--text)">28</div><div class="metric" style="width:40px;color:var(--text)">19</div>
-      <div class="metric" style="width:50px;font-weight:700">136</div>
-      <div class="metric" style="width:80px;color:var(--accent-light)">3,005,600</div>
+      <div class="metric daily-cell" style="width:40px">35</div><div class="metric daily-cell" style="width:40px">28</div><div class="metric daily-cell" style="width:40px">26</div><div class="metric daily-cell" style="width:40px">28</div><div class="metric daily-cell" style="width:40px">19</div>
+      <div class="metric cum-qty" style="width:50px;font-weight:700">136</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">3,005,600</div>
+      <div class="mobile-daily" style="display:none"><span>D1:35</span><span>D2:28</span><span>D3:26</span><span>D4:28</span><span>D5:19</span></div>
     </div><div class="table-row">
       <div class="rank normal">5</div>
       <div class="product-name">셀리소피 세트</div>
-      <div class="metric" style="width:40px;color:var(--text)">19</div><div class="metric" style="width:40px;color:var(--text)">8</div><div class="metric" style="width:40px;color:var(--text)">10</div><div class="metric" style="width:40px;color:var(--text)">8</div><div class="metric" style="width:40px;color:var(--text)">8</div>
-      <div class="metric" style="width:50px;font-weight:700">53</div>
-      <div class="metric" style="width:80px;color:var(--accent-light)">2,703,000</div>
+      <div class="metric daily-cell" style="width:40px">19</div><div class="metric daily-cell" style="width:40px">8</div><div class="metric daily-cell" style="width:40px">10</div><div class="metric daily-cell" style="width:40px">8</div><div class="metric daily-cell" style="width:40px">8</div>
+      <div class="metric cum-qty" style="width:50px;font-weight:700">53</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">2,703,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:19</span><span>D2:8</span><span>D3:10</span><span>D4:8</span><span>D5:8</span></div>
     </div><div class="table-row">
       <div class="rank normal">6</div>
       <div class="product-name">보니 헤어밴드</div>
-      <div class="metric" style="width:40px;color:var(--text)">40</div><div class="metric" style="width:40px;color:var(--text)">25</div><div class="metric" style="width:40px;color:var(--text)">31</div><div class="metric" style="width:40px;color:var(--text)">41</div><div class="metric" style="width:40px;color:var(--text)">31</div>
-      <div class="metric" style="width:50px;font-weight:700">168</div>
-      <div class="metric" style="width:80px;color:var(--accent-light)">2,688,000</div>
+      <div class="metric daily-cell" style="width:40px">40</div><div class="metric daily-cell" style="width:40px">25</div><div class="metric daily-cell" style="width:40px">31</div><div class="metric daily-cell" style="width:40px">41</div><div class="metric daily-cell" style="width:40px">31</div>
+      <div class="metric cum-qty" style="width:50px;font-weight:700">168</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">2,688,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:40</span><span>D2:25</span><span>D3:31</span><span>D4:41</span><span>D5:31</span></div>
     </div><div class="table-row">
       <div class="rank normal">7</div>
       <div class="product-name">미미쥬쥬 세트</div>
-      <div class="metric" style="width:40px;color:var(--text)">14</div><div class="metric" style="width:40px;color:var(--text)">9</div><div class="metric" style="width:40px;color:var(--text)">14</div><div class="metric" style="width:40px;color:var(--text)">18</div><div class="metric" style="width:40px;color:var(--text)">8</div>
-      <div class="metric" style="width:50px;font-weight:700">63</div>
-      <div class="metric" style="width:80px;color:var(--accent-light)">2,463,300</div>
+      <div class="metric daily-cell" style="width:40px">14</div><div class="metric daily-cell" style="width:40px">9</div><div class="metric daily-cell" style="width:40px">14</div><div class="metric daily-cell" style="width:40px">18</div><div class="metric daily-cell" style="width:40px">8</div>
+      <div class="metric cum-qty" style="width:50px;font-weight:700">63</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">2,463,300</div>
+      <div class="mobile-daily" style="display:none"><span>D1:14</span><span>D2:9</span><span>D3:14</span><span>D4:18</span><span>D5:8</span></div>
     </div><div class="table-row">
       <div class="rank normal">8</div>
       <div class="product-name">단단_baby</div>
-      <div class="metric" style="width:40px;color:var(--text)">45</div><div class="metric" style="width:40px;color:var(--text)">31</div><div class="metric" style="width:40px;color:var(--text)">36</div><div class="metric" style="width:40px;color:var(--text)">33</div><div class="metric" style="width:40px;color:var(--text)">31</div>
-      <div class="metric" style="width:50px;font-weight:700">176</div>
-      <div class="metric" style="width:80px;color:var(--accent-light)">2,393,600</div>
+      <div class="metric daily-cell" style="width:40px">45</div><div class="metric daily-cell" style="width:40px">31</div><div class="metric daily-cell" style="width:40px">36</div><div class="metric daily-cell" style="width:40px">33</div><div class="metric daily-cell" style="width:40px">31</div>
+      <div class="metric cum-qty" style="width:50px;font-weight:700">176</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">2,393,600</div>
+      <div class="mobile-daily" style="display:none"><span>D1:45</span><span>D2:31</span><span>D3:36</span><span>D4:33</span><span>D5:31</span></div>
     </div><div class="table-row">
       <div class="rank normal">9</div>
       <div class="product-name">멜로디세트</div>
-      <div class="metric" style="width:40px;color:var(--text)">14</div><div class="metric" style="width:40px;color:var(--text)">16</div><div class="metric" style="width:40px;color:var(--text)">17</div><div class="metric" style="width:40px;color:var(--text)">15</div><div class="metric" style="width:40px;color:var(--text)">11</div>
-      <div class="metric" style="width:50px;font-weight:700">73</div>
-      <div class="metric" style="width:80px;color:var(--accent-light)">1,898,000</div>
+      <div class="metric daily-cell" style="width:40px">14</div><div class="metric daily-cell" style="width:40px">16</div><div class="metric daily-cell" style="width:40px">17</div><div class="metric daily-cell" style="width:40px">15</div><div class="metric daily-cell" style="width:40px">11</div>
+      <div class="metric cum-qty" style="width:50px;font-weight:700">73</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">1,898,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:14</span><span>D2:16</span><span>D3:17</span><span>D4:15</span><span>D5:11</span></div>
     </div><div class="table-row">
       <div class="rank normal">10</div>
       <div class="product-name">비커밍세트</div>
-      <div class="metric" style="width:40px;color:var(--text)">9</div><div class="metric" style="width:40px;color:var(--text)">15</div><div class="metric" style="width:40px;color:var(--text)">13</div><div class="metric" style="width:40px;color:var(--text)">19</div><div class="metric" style="width:40px;color:var(--text)">15</div>
-      <div class="metric" style="width:50px;font-weight:700">71</div>
-      <div class="metric" style="width:80px;color:var(--accent-light)">1,810,500</div>
+      <div class="metric daily-cell" style="width:40px">9</div><div class="metric daily-cell" style="width:40px">15</div><div class="metric daily-cell" style="width:40px">13</div><div class="metric daily-cell" style="width:40px">19</div><div class="metric daily-cell" style="width:40px">15</div>
+      <div class="metric cum-qty" style="width:50px;font-weight:700">71</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">1,810,500</div>
+      <div class="mobile-daily" style="display:none"><span>D1:9</span><span>D2:15</span><span>D3:13</span><span>D4:19</span><span>D5:15</span></div>
     </div>
   </div>
 
