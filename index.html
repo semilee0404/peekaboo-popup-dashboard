@@ -16,6 +16,7 @@
     --orange: #f59e0b; --orange-bg: rgba(245,158,11,0.12);
     --blue: #3b82f6; --blue-bg: rgba(59,130,246,0.12);
     --pink: #ec4899; --purple: #a855f7;
+    --gold: #fbbf24; --gold-bg: rgba(251,191,36,0.15);
   }
   body { font-family: 'Noto Sans KR', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
   .header { background: linear-gradient(135deg, #1a1d27 0%, #252838 100%); border-bottom: 1px solid var(--border); padding: 28px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); }
@@ -24,7 +25,12 @@
   .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, var(--accent), var(--pink)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; }
   .logo h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
   .logo .sub { font-size: 13px; color: var(--text-dim); font-weight: 400; margin-top: 2px; }
-  .header-badge { background: var(--green-bg); color: var(--green); padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; border: 1px solid rgba(34,197,94,0.2); }
+  .header-badge { background: var(--gold-bg); color: var(--gold); padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; border: 1px solid rgba(251,191,36,0.3); }
+  .milestone { background: linear-gradient(135deg, #0f2818 0%, #1a3520 50%, #0f2818 100%); border: 2px solid rgba(34,197,94,0.4); border-radius: 20px; padding: 32px; margin-bottom: 28px; text-align: center; position: relative; overflow: hidden; }
+  .milestone::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(34,197,94,0.1) 0%, transparent 70%); }
+  .milestone-amount { font-size: 48px; font-weight: 900; background: linear-gradient(135deg, var(--green), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -2px; line-height: 1.2; position: relative; }
+  .milestone-sub { font-size: 16px; color: var(--green); margin-top: 8px; font-weight: 600; position: relative; }
+  .milestone-detail { font-size: 13px; color: var(--text-dim); margin-top: 12px; position: relative; }
   .container { max-width: 1400px; margin: 0 auto; padding: 32px; }
   .kpi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 28px; }
   .kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; transition: all 0.2s; }
@@ -35,21 +41,21 @@
   .kpi-change { display: inline-flex; align-items: center; gap: 3px; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 6px; margin-top: 6px; }
   .kpi-change.up { background: var(--green-bg); color: var(--green); }
   .kpi-change.down { background: var(--red-bg); color: var(--red); }
-  .kpi-value.blue { color: var(--blue); } .kpi-value.purple { color: var(--purple); } .kpi-value.orange { color: var(--orange); } .kpi-value.pink { color: var(--pink); }
   .day-compare { background: linear-gradient(135deg, #1a1d30, #1e2540); border: 1px solid rgba(99,102,241,0.2); border-radius: 20px; padding: 32px; margin-bottom: 28px; }
-  .day-compare h2 { font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .day-compare h2 { font-size: 18px; font-weight: 700; margin-bottom: 20px; }
   .day-bars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
   .day-bar-item { text-align: center; }
   .day-bar-label { font-size: 13px; color: var(--text-dim); margin-bottom: 12px; }
-  .day-bar-group { display: flex; align-items: flex-end; justify-content: center; gap: 3px; height: 120px; margin-bottom: 10px; }
-  .day-bar { width: 20px; border-radius: 6px 6px 3px 3px; position: relative; }
-  .day-bar .val { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 9px; font-weight: 700; white-space: nowrap; }
+  .day-bar-group { display: flex; align-items: flex-end; justify-content: center; gap: 2px; height: 120px; margin-bottom: 10px; }
+  .day-bar { width: 14px; border-radius: 5px 5px 2px 2px; position: relative; }
+  .day-bar .val { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 8px; font-weight: 700; white-space: nowrap; }
   .day-bar.d1 { background: linear-gradient(180deg, #6366f1, #4f46e5); }
   .day-bar.d2 { background: linear-gradient(180deg, #8b5cf6, #7c3aed); }
   .day-bar.d3 { background: linear-gradient(180deg, #d946ef, #a21caf); }
   .day-bar.d4 { background: linear-gradient(180deg, var(--pink), #be185d); }
   .day-bar.d5 { background: linear-gradient(180deg, var(--orange), #d97706); }
   .day-bar.d6 { background: linear-gradient(180deg, var(--blue), #2563eb); }
+  .day-bar.d7 { background: linear-gradient(180deg, var(--green), #16a34a); }
   .day-bar-legend { display: flex; justify-content: center; gap: 10px; font-size: 11px; color: var(--text-dim); flex-wrap: wrap; }
   .day-bar-legend span { display: flex; align-items: center; gap: 5px; }
   .legend-box { width: 10px; height: 10px; border-radius: 3px; }
@@ -58,10 +64,10 @@
   .target-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; }
   .target-header h2 { font-size: 18px; font-weight: 700; }
   .target-numbers { text-align: right; }
-  .target-numbers .current { font-size: 36px; font-weight: 900; color: var(--accent-light); letter-spacing: -1.5px; }
+  .target-numbers .current { font-size: 36px; font-weight: 900; color: var(--green); letter-spacing: -1.5px; }
   .target-numbers .goal { font-size: 14px; color: var(--text-dim); }
   .progress-track { width: 100%; height: 16px; background: rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden; }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--pink)); border-radius: 10px; position: relative; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--green)); border-radius: 10px; position: relative; }
   .progress-fill::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2)); animation: shimmer 2s infinite; }
   .progress-markers { position: relative; height: 24px; margin-top: 4px; }
   .progress-marker { position: absolute; transform: translateX(-50%); font-size: 11px; color: var(--text-dim); display: flex; flex-direction: column; align-items: center; }
@@ -121,7 +127,7 @@
     .highlight-items { grid-template-columns: 1fr 1fr; }
     .header-inner { flex-direction: column; gap: 12px; text-align: center; }
     .header { padding: 20px 0; }
-    .day-compare, .target-section, .highlight-card, .action-section { padding: 20px; }
+    .day-compare, .target-section, .highlight-card, .action-section, .milestone { padding: 20px; }
     .card { padding: 16px; }
     .target-header { flex-direction: column; gap: 12px; }
     .target-numbers { text-align: left; }
@@ -132,7 +138,7 @@
     .table-header { display: none; }
     .table-row { flex-wrap: wrap; padding: 14px 0; gap: 6px 12px; }
     .table-row .daily-cell { display: none; }
-    .product-name { flex: unset; width: calc(100% - 44px); font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .product-name { flex: unset; width: calc(100% - 44px); }
     .metric.cum-qty { width: auto !important; }
     .metric.cum-rev { width: auto !important; font-size: 13px; }
     .rank { width: 26px; height: 26px; font-size: 12px; }
@@ -141,6 +147,7 @@
     .table-row .metric { font-size: 13px; }
     .tag { font-size: 10px; padding: 2px 7px; }
     .margin-legend { gap: 12px; }
+    .milestone-amount { font-size: 36px; }
   }
 </style>
 </head>
@@ -155,66 +162,72 @@
         <div class="sub">신세계백화점 대구점 &middot; 2026.03.19 - 03.26</div>
       </div>
     </div>
-    <div class="header-badge">DAY 6 &middot; 3/24(화) &middot; 누적 6일차</div>
+    <div class="header-badge">DAY 7 &middot; 3/25(수) &middot; TARGET ACHIEVED</div>
   </div>
 </div>
 
 <div class="container">
 
+  <div class="milestone">
+    <div class="milestone-amount">1억 346만원</div>
+    <div class="milestone-sub">목표 1억 달성! &mdash; 달성률 103.5%</div>
+    <div class="milestone-detail">D7(수) 하루만에 잔여 1,076만 돌파 &middot; 남은 1일(D8 목) 추가 매출 예상 &middot; 최종 예상 1.18억</div>
+  </div>
+
   <div class="kpi-grid">
     <div class="kpi-card">
-      <div class="kpi-label">당일 실결제 (D6)</div>
-      <div class="kpi-value blue">1,223만</div>
-      <div class="kpi-change down">-6.8% vs 전날</div>
-      <div class="kpi-sub">평일 2일차 &middot; D5: 1,312만</div>
+      <div class="kpi-label">당일 실결제 (D7)</div>
+      <div class="kpi-value" style="color:var(--blue)">1,422만</div>
+      <div class="kpi-change up">+16.3% vs 전날</div>
+      <div class="kpi-sub">평일 반등 &middot; D6: 1,223만</div>
     </div>
-    <div class="kpi-card">
+    <div class="kpi-card" style="border-color:rgba(34,197,94,0.3)">
       <div class="kpi-label">누적 실결제</div>
-      <div class="kpi-value" style="color:var(--accent-light)">8,924만</div>
-      <div class="kpi-sub">수수료 차감 후 6,425만</div>
+      <div class="kpi-value" style="color:var(--green)">10,346만</div>
+      <div class="kpi-sub">수수료 차감 후 7,449만</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">판매수량</div>
-      <div class="kpi-value purple">668개</div>
-      <div class="kpi-change down">-8.6% vs 전날</div>
-      <div class="kpi-sub">누적 4,720개</div>
+      <div class="kpi-value" style="color:var(--purple)">727개</div>
+      <div class="kpi-change up">+8.8% vs 전날</div>
+      <div class="kpi-sub">누적 5,447개</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">거래건수</div>
-      <div class="kpi-value orange">160건</div>
-      <div class="kpi-change up">+0.6% vs 전날</div>
-      <div class="kpi-sub">누적 1,167건</div>
+      <div class="kpi-value" style="color:var(--orange)">185건</div>
+      <div class="kpi-change up">+15.6% vs 전날</div>
+      <div class="kpi-sub">누적 1,352건</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">객단가</div>
-      <div class="kpi-value pink">76,445원</div>
-      <div class="kpi-change down">-7.4%</div>
-      <div class="kpi-sub">6일 평균 76,472원</div>
+      <div class="kpi-value" style="color:var(--pink)">76,884원</div>
+      <div class="kpi-change up">+0.6%</div>
+      <div class="kpi-sub">7일 평균 76,527원</div>
     </div>
   </div>
 
   <div class="day-compare">
-    <h2><span style="font-size:18px">D1~D6</span> <span style="font-size:14px;color:var(--text-dim);font-weight:400">일별 실적 추이 (실결제 기준)</span></h2>
+    <h2><span style="font-size:18px">D1~D7</span> <span style="font-size:14px;color:var(--text-dim);font-weight:400">일별 실적 추이 (실결제 기준)</span></h2>
     <div class="day-bars">
       <div class="day-bar-item">
         <div class="day-bar-label">실결제 (만원)</div>
-        <div class="day-bar-group"><div class="day-bar d1" style="height:85.4%"><div class="val">1537</div></div><div class="day-bar d2" style="height:79.6%"><div class="val">1434</div></div><div class="day-bar d3" style="height:89.7%"><div class="val">1616</div></div><div class="day-bar d4" style="height:100.0%"><div class="val">1801</div></div><div class="day-bar d5" style="height:72.8%"><div class="val">1312</div></div><div class="day-bar d6" style="height:67.9%"><div class="val">1223</div></div></div>
-        <div class="day-bar-diff" style="color:var(--red)">-6.8%</div>
+        <div class="day-bar-group"><div class="day-bar d1" style="height:85.4%"><div class="val">1537</div></div><div class="day-bar d2" style="height:79.6%"><div class="val">1433</div></div><div class="day-bar d3" style="height:89.7%"><div class="val">1616</div></div><div class="day-bar d4" style="height:100.0%"><div class="val">1801</div></div><div class="day-bar d5" style="height:72.8%"><div class="val">1312</div></div><div class="day-bar d6" style="height:67.9%"><div class="val">1223</div></div><div class="day-bar d7" style="height:79.0%"><div class="val">1422</div></div></div>
+        <div class="day-bar-diff" style="color:var(--green)">+16.3%</div>
       </div>
       <div class="day-bar-item">
         <div class="day-bar-label">판매수량</div>
-        <div class="day-bar-group"><div class="day-bar d1" style="height:75.5%"><div class="val">726</div></div><div class="day-bar d2" style="height:79.6%"><div class="val">765</div></div><div class="day-bar d3" style="height:90.4%"><div class="val">869</div></div><div class="day-bar d4" style="height:100.0%"><div class="val">961</div></div><div class="day-bar d5" style="height:76.1%"><div class="val">731</div></div><div class="day-bar d6" style="height:69.5%"><div class="val">668</div></div></div>
-        <div class="day-bar-diff" style="color:var(--red)">-8.6%</div>
+        <div class="day-bar-group"><div class="day-bar d1" style="height:75.5%"><div class="val">726</div></div><div class="day-bar d2" style="height:79.6%"><div class="val">765</div></div><div class="day-bar d3" style="height:90.4%"><div class="val">869</div></div><div class="day-bar d4" style="height:100.0%"><div class="val">961</div></div><div class="day-bar d5" style="height:76.1%"><div class="val">731</div></div><div class="day-bar d6" style="height:69.5%"><div class="val">668</div></div><div class="day-bar d7" style="height:75.7%"><div class="val">727</div></div></div>
+        <div class="day-bar-diff" style="color:var(--green)">+8.8%</div>
       </div>
       <div class="day-bar-item">
         <div class="day-bar-label">거래건수</div>
-        <div class="day-bar-group"><div class="day-bar d1" style="height:88.0%"><div class="val">206</div></div><div class="day-bar d2" style="height:82.1%"><div class="val">192</div></div><div class="day-bar d3" style="height:92.3%"><div class="val">216</div></div><div class="day-bar d4" style="height:100.0%"><div class="val">234</div></div><div class="day-bar d5" style="height:67.9%"><div class="val">159</div></div><div class="day-bar d6" style="height:68.4%"><div class="val">160</div></div></div>
-        <div class="day-bar-diff" style="color:var(--green)">+0.6%</div>
+        <div class="day-bar-group"><div class="day-bar d1" style="height:88.0%"><div class="val">206</div></div><div class="day-bar d2" style="height:82.1%"><div class="val">192</div></div><div class="day-bar d3" style="height:92.3%"><div class="val">216</div></div><div class="day-bar d4" style="height:100.0%"><div class="val">234</div></div><div class="day-bar d5" style="height:67.9%"><div class="val">159</div></div><div class="day-bar d6" style="height:68.4%"><div class="val">160</div></div><div class="day-bar d7" style="height:79.1%"><div class="val">185</div></div></div>
+        <div class="day-bar-diff" style="color:var(--green)">+15.6%</div>
       </div>
       <div class="day-bar-item">
         <div class="day-bar-label">객단가</div>
-        <div class="day-bar-group"><div class="day-bar d1" style="height:90.4%"><div class="val">74,631</div></div><div class="day-bar d2" style="height:90.5%"><div class="val">74,678</div></div><div class="day-bar d3" style="height:90.7%"><div class="val">74,836</div></div><div class="day-bar d4" style="height:93.3%"><div class="val">76,972</div></div><div class="day-bar d5" style="height:100.0%"><div class="val">82,521</div></div><div class="day-bar d6" style="height:92.6%"><div class="val">76,444</div></div></div>
-        <div class="day-bar-diff" style="color:var(--red)">-7.4%</div>
+        <div class="day-bar-group"><div class="day-bar d1" style="height:90.4%"><div class="val">74,631</div></div><div class="day-bar d2" style="height:90.5%"><div class="val">74,678</div></div><div class="day-bar d3" style="height:90.7%"><div class="val">74,836</div></div><div class="day-bar d4" style="height:93.3%"><div class="val">76,972</div></div><div class="day-bar d5" style="height:100.0%"><div class="val">82,522</div></div><div class="day-bar d6" style="height:92.6%"><div class="val">76,444</div></div><div class="day-bar d7" style="height:93.2%"><div class="val">76,884</div></div></div>
+        <div class="day-bar-diff" style="color:var(--green)">+0.6%</div>
       </div>
     </div>
     <div style="margin-top:16px">
@@ -225,10 +238,11 @@
         <span><div class="legend-box" style="background:var(--pink)"></div>D4일</span>
         <span><div class="legend-box" style="background:var(--orange)"></div>D5월</span>
         <span><div class="legend-box" style="background:var(--blue)"></div>D6화</span>
+        <span><div class="legend-box" style="background:var(--green)"></div>D7수</span>
       </div>
     </div>
-    <div style="margin-top:16px;padding:14px;background:rgba(59,130,246,0.08);border-radius:10px;font-size:13px;color:var(--text-dim)">
-      <strong style="color:var(--blue)">평일 안정권</strong> &mdash; D5→D6 매출 -6.8%로 하락폭 둔화. 건수는 160건으로 D5와 동일 수준 유지. 별별민소매세트/수트 신규 투입이 제제_블루머, 단단_baby 상승을 견인.
+    <div style="margin-top:16px;padding:14px;background:rgba(34,197,94,0.08);border-radius:10px;font-size:13px;color:var(--text-dim)">
+      <strong style="color:var(--green)">평일 강한 반등!</strong> &mdash; D6&rarr;D7 매출 +16.3%, 건수 +15.6%로 전 지표 상승 전환. 쇼콜라 티셔츠(+43%), 미미쥬쥬 세트(+150%), 베티 빕(+82%) 급상승이 견인. 목표 1억 D7에서 조기 돌파.
     </div>
   </div>
 
@@ -236,41 +250,41 @@
     <div class="target-header">
       <div>
         <h2>목표 달성 트래킹</h2>
-        <div style="font-size:13px;color:var(--text-dim);margin-top:4px">누적 6일차 &middot; 실결제 기준</div>
+        <div style="font-size:13px;color:var(--text-dim);margin-top:4px">누적 7일차 &middot; 실결제 기준</div>
       </div>
       <div class="target-numbers">
-        <div class="current">8,924만 <span style="font-size:18px;color:var(--text-dim)">/ 1억</span></div>
-        <div class="goal">현재 페이스 유지 시 예상 총매출 1.19억</div>
+        <div class="current">10,346만 <span style="font-size:18px;color:var(--text-dim)">/ 1억</span></div>
+        <div class="goal">현재 페이스 유지 시 예상 총매출 1.18억</div>
       </div>
     </div>
     <div class="progress-track">
-      <div class="progress-fill" style="width: 89.2%;"></div>
+      <div class="progress-fill" style="width: 100%;"></div>
     </div>
-    <div class="progress-markers"><div class="progress-marker" style="left:15.4%">D1</div><div class="progress-marker" style="left:29.7%">D2</div><div class="progress-marker" style="left:45.9%">D3</div><div class="progress-marker" style="left:63.9%">D4</div><div class="progress-marker" style="left:77.0%">D5</div><div class="progress-marker" style="left:89.2%">D6</div><div class="progress-marker" style="left:100%">1억</div></div>
+    <div class="progress-markers"><div class="progress-marker" style="left:15.4%">D1</div><div class="progress-marker" style="left:29.7%">D2</div><div class="progress-marker" style="left:45.9%">D3</div><div class="progress-marker" style="left:63.9%">D4</div><div class="progress-marker" style="left:77.0%">D5</div><div class="progress-marker" style="left:89.2%">D6</div><div class="progress-marker" style="left:100.0%">D7</div><div class="progress-marker" style="left:100%">1억</div></div>
     <div class="target-stats">
       <div class="target-stat-item">
         <div class="label">달성률</div>
-        <div class="value" style="color:var(--accent-light)">89.2%</div>
+        <div class="value" style="color:var(--green)">103.5%</div>
       </div>
       <div class="target-stat-item">
-        <div class="label">남은 목표</div>
-        <div class="value">1,076만</div>
+        <div class="label">초과 달성</div>
+        <div class="value" style="color:var(--green)">+346만</div>
       </div>
       <div class="target-stat-item">
         <div class="label">남은 기간</div>
-        <div class="value">2일</div>
-      </div>
-      <div class="target-stat-item">
-        <div class="label">일평균 필요</div>
-        <div class="value">538만/일</div>
+        <div class="value">1일</div>
       </div>
       <div class="target-stat-item">
         <div class="label">일평균 실적</div>
-        <div class="value" style="color:var(--green)">1,487만/일</div>
+        <div class="value" style="color:var(--green)">1,478만/일</div>
+      </div>
+      <div class="target-stat-item">
+        <div class="label">예상 총매출</div>
+        <div class="value" style="color:var(--green)">1.18억</div>
       </div>
     </div>
     <div style="margin-top:16px;padding:14px;background:rgba(34,197,94,0.08);border-radius:10px;font-size:13px;color:var(--text-dim)">
-      남은 2일간 필요 매출 <strong style="color:var(--text)">1,076만</strong> (일평균 538만) &mdash; 일평균 실적 <strong style="color:var(--green)">1,487만</strong>의 36% 수준. <strong style="color:var(--green)">내일(D7) 하루만에 목표 1억 돌파 가능</strong>.
+      목표 1억 <strong style="color:var(--green)">D7에서 달성!</strong> 누적 <strong style="color:var(--text)">10,346만</strong> (달성률 103.5%). 남은 D8(목) 1일간 추가 매출로 최종 <strong style="color:var(--green)">1.18억</strong> 전망.
     </div>
   </div>
 
@@ -278,121 +292,121 @@
     <div class="card" style="border-color:rgba(34,197,94,0.2)">
       <div class="section-title">
         <div class="icon" style="background:var(--green-bg)">상</div>
-        D6 급상승 &mdash; 전날 대비 증가
+        D7 급상승 &mdash; 전날 대비 증가
       </div>
-      <div style="font-size:12px;color:var(--text-dim);margin-bottom:12px">D5 대비 판매수량 증가 (누적매출 10만 이상)</div>
+      <div style="font-size:12px;color:var(--text-dim);margin-bottom:12px">D6 대비 판매수량 증가 (누적매출 10만 이상)</div>
       <div class="table-row">
-      <div class="product-name">별별민소매세트</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">0</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--green)">18</div>
-      <div class="tag green">NEW</div>
-    </div><div class="table-row">
-      <div class="product-name">제제_블루머</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">19</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--green)">29</div>
-      <div class="tag green">+53%</div>
-    </div><div class="table-row">
-      <div class="product-name">단단_baby</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">31</div>
-      <div class="metric" style="width:20px">→</div>
+      <div class="product-name">쇼콜라 티셔츠</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">28</div>
+      <div class="metric" style="width:20px">&rarr;</div>
       <div class="metric" style="width:40px;color:var(--green)">40</div>
-      <div class="tag green">+29%</div>
+      <div class="tag green">+43%</div>
     </div><div class="table-row">
-      <div class="product-name">별별민소매_수트</div>
+      <div class="product-name">미미쥬쥬 세트</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">6</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--green)">15</div>
+      <div class="tag green">+150%</div>
+    </div><div class="table-row">
+      <div class="product-name">베티 빕</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">11</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--green)">20</div>
+      <div class="tag green">+82%</div>
+    </div><div class="table-row">
+      <div class="product-name">리지 바디수트</div>
       <div class="metric" style="width:40px;color:var(--text-dim)">0</div>
-      <div class="metric" style="width:20px">→</div>
+      <div class="metric" style="width:20px">&rarr;</div>
       <div class="metric" style="width:40px;color:var(--green)">9</div>
       <div class="tag green">NEW</div>
     </div><div class="table-row">
-      <div class="product-name">데이지_터번모자</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">3</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--green)">10</div>
-      <div class="tag green">+233%</div>
+      <div class="product-name">보니 블루머</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">33</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--green)">40</div>
+      <div class="tag green">+21%</div>
     </div><div class="table-row">
-      <div class="product-name">제제_보넷</div>
+      <div class="product-name">밀키 베이비 3종세트</div>
       <div class="metric" style="width:40px;color:var(--text-dim)">11</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--green)">17</div>
-      <div class="tag green">+55%</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--green)">18</div>
+      <div class="tag green">+64%</div>
     </div><div class="table-row">
-      <div class="product-name">단단티셔츠</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">0</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--green)">5</div>
-      <div class="tag green">NEW</div>
+      <div class="product-name">데이지_민소매 수트</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">6</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--green)">12</div>
+      <div class="tag green">+100%</div>
     </div><div class="table-row">
-      <div class="product-name">블루밍 베이비세트</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">1</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--green)">6</div>
-      <div class="tag green">+500%</div>
+      <div class="product-name">프롬 반팔 바디 배냇</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">3</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--green)">9</div>
+      <div class="tag green">+200%</div>
     </div>
     </div>
     <div class="card" style="border-color:rgba(239,68,68,0.2)">
       <div class="section-title">
         <div class="icon" style="background:var(--red-bg)">하</div>
-        D6 급하락 &mdash; 전날 대비 감소
+        D7 급하락 &mdash; 전날 대비 감소
       </div>
-      <div style="font-size:12px;color:var(--text-dim);margin-bottom:12px">D5 대비 판매수량 감소 (누적매출 10만 이상)</div>
+      <div style="font-size:12px;color:var(--text-dim);margin-bottom:12px">D6 대비 판매수량 감소 (누적매출 10만 이상)</div>
       <div class="table-row">
-      <div class="product-name">보니 블루머</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">52</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--red)">33</div>
-      <div class="tag red">-37%</div>
-    </div><div class="table-row">
-      <div class="product-name">심플패키지</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">19</div>
-      <div class="metric" style="width:20px">→</div>
+      <div class="product-name">별별민소매세트</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">18</div>
+      <div class="metric" style="width:20px">&rarr;</div>
       <div class="metric" style="width:40px;color:var(--red)">0</div>
       <div class="tag red">-100%</div>
     </div><div class="table-row">
-      <div class="product-name">보니 헤어밴드</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">31</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--red)">18</div>
-      <div class="tag red">-42%</div>
+      <div class="product-name">단단_baby</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">40</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--red)">26</div>
+      <div class="tag red">-35%</div>
     </div><div class="table-row">
-      <div class="product-name">베티 빕</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">23</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--red)">11</div>
-      <div class="tag red">-52%</div>
+      <div class="product-name">멜로디세트</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">14</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--red)">5</div>
+      <div class="tag red">-64%</div>
     </div><div class="table-row">
-      <div class="product-name">리지 키즈 세트</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">16</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--red)">4</div>
-      <div class="tag red">-75%</div>
+      <div class="product-name">별별민소매_수트</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">9</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--red)">0</div>
+      <div class="tag red">-100%</div>
     </div><div class="table-row">
-      <div class="product-name">쇼콜라 티셔츠</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">38</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--red)">28</div>
-      <div class="tag red">-26%</div>
+      <div class="product-name">비커밍세트</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">14</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--red)">7</div>
+      <div class="tag red">-50%</div>
     </div><div class="table-row">
-      <div class="product-name">데이지_리프_헤어핀</div>
+      <div class="product-name">멜로디_바디수트</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">12</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--red)">5</div>
+      <div class="tag red">-58%</div>
+    </div><div class="table-row">
+      <div class="product-name">데이지_민소매 키즈세트</div>
       <div class="metric" style="width:40px;color:var(--text-dim)">10</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--red)">0</div>
-      <div class="tag red">-100%</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--red)">5</div>
+      <div class="tag red">-50%</div>
     </div><div class="table-row">
-      <div class="product-name">리지 바디수트</div>
-      <div class="metric" style="width:40px;color:var(--text-dim)">8</div>
-      <div class="metric" style="width:20px">→</div>
-      <div class="metric" style="width:40px;color:var(--red)">0</div>
-      <div class="tag red">-100%</div>
+      <div class="product-name">제제_블루머</div>
+      <div class="metric" style="width:40px;color:var(--text-dim)">29</div>
+      <div class="metric" style="width:20px">&rarr;</div>
+      <div class="metric" style="width:40px;color:var(--red)">24</div>
+      <div class="tag red">-17%</div>
     </div>
     </div>
   </div>
 
   <div class="highlight-card">
-    <div class="highlight-title"><span style="font-size:20px">NEW</span> D6 신규 투입 상품</div>
-    <div style="font-size:13px;color:var(--text-dim);margin-bottom:16px">이전 5일간 판매 0 &rarr; D6 첫 판매 (4종)</div>
-    <div class="highlight-items"><div class="highlight-item"><div class="name">별별민소매세트</div><div class="qty">18개</div><div class="sub">D6 첫 판매</div></div><div class="highlight-item"><div class="name">별별민소매_수트</div><div class="qty">9개</div><div class="sub">D6 첫 판매</div></div><div class="highlight-item"><div class="name">멜로디_주니어</div><div class="qty">3개</div><div class="sub">D6 첫 판매</div></div><div class="highlight-item"><div class="name">디어 배냇 세트</div><div class="qty">1개</div><div class="sub">D6 첫 판매</div></div></div>
+    <div class="highlight-title"><span style="font-size:20px">NEW</span> D7 신규 투입 상품</div>
+    <div style="font-size:13px;color:var(--text-dim);margin-bottom:16px">이전 6일간 판매 0 &rarr; D7 첫 판매 (4종)</div>
+    <div class="highlight-items"><div class="highlight-item"><div class="name">라떼_바디수트</div><div class="qty">4개</div><div class="sub">D7 첫 판매</div></div><div class="highlight-item"><div class="name">데이지 삭스 성인</div><div class="qty">4개</div><div class="sub">D7 첫 판매</div></div><div class="highlight-item"><div class="name">카페세트</div><div class="qty">3개</div><div class="sub">D7 첫 판매</div></div><div class="highlight-item"><div class="name">윈디 주니어 가디건</div><div class="qty">2개</div><div class="sub">D7 첫 판매</div></div></div>
   </div>
 
   <div class="card" style="margin-bottom:28px">
@@ -400,7 +414,7 @@
       <div class="icon" style="background:var(--orange-bg)">TOP</div>
       누적 베스트셀러 TOP 10
     </div>
-    <div style="font-size:12px;color:var(--text-dim);margin-bottom:12px">직영매장 기준 &middot; D1~D6 누적</div>
+    <div style="font-size:12px;color:var(--text-dim);margin-bottom:12px">직영매장 기준 &middot; D1~D7 누적</div>
     <div class="table-header">
       <div style="width:28px">#</div>
       <div style="flex:1">상품명</div>
@@ -410,79 +424,80 @@
       <div class="daily-cell" style="width:36px;text-align:right">D4</div>
       <div class="daily-cell" style="width:36px;text-align:right">D5</div>
       <div class="daily-cell" style="width:36px;text-align:right">D6</div>
+      <div class="daily-cell" style="width:36px;text-align:right">D7</div>
       <div style="width:46px;text-align:right">누적</div>
       <div style="width:80px;text-align:right">누적매출</div>
     </div>
     <div class="table-row">
       <div class="rank gold">1</div>
       <div class="product-name">보니 블루머</div>
-      <div class="metric daily-cell" style="width:36px;color:var(--text)">51</div><div class="metric daily-cell" style="width:36px;color:var(--text)">39</div><div class="metric daily-cell" style="width:36px;color:var(--text)">46</div><div class="metric daily-cell" style="width:36px;color:var(--text)">57</div><div class="metric daily-cell" style="width:36px;color:var(--text)">52</div><div class="metric daily-cell" style="width:36px;color:var(--text)">33</div>
-      <div class="metric cum-qty" style="width:46px;font-weight:700">278</div>
-      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">7,228,000</div>
-      <div class="mobile-daily" style="display:none"><span>D1:51</span><span>D2:39</span><span>D3:46</span><span>D4:57</span><span>D5:52</span><span>D6:33</span></div>
+      <div class="metric daily-cell" style="width:36px;color:var(--text)">51</div><div class="metric daily-cell" style="width:36px;color:var(--text)">39</div><div class="metric daily-cell" style="width:36px;color:var(--text)">46</div><div class="metric daily-cell" style="width:36px;color:var(--text)">57</div><div class="metric daily-cell" style="width:36px;color:var(--text)">52</div><div class="metric daily-cell" style="width:36px;color:var(--text)">33</div><div class="metric daily-cell" style="width:36px;color:var(--text)">40</div>
+      <div class="metric cum-qty" style="width:46px;font-weight:700">318</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">8,268,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:51</span><span>D2:39</span><span>D3:46</span><span>D4:57</span><span>D5:52</span><span>D6:33</span><span>D7:40</span></div>
     </div><div class="table-row">
       <div class="rank silver">2</div>
-      <div class="product-name">디져트세트</div>
-      <div class="metric daily-cell" style="width:36px;color:var(--text)">26</div><div class="metric daily-cell" style="width:36px;color:var(--text)">16</div><div class="metric daily-cell" style="width:36px;color:var(--text)">23</div><div class="metric daily-cell" style="width:36px;color:var(--text)">23</div><div class="metric daily-cell" style="width:36px;color:var(--text)">9</div><div class="metric daily-cell" style="width:36px;color:var(--text)">11</div>
-      <div class="metric cum-qty" style="width:46px;font-weight:700">108</div>
-      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">5,724,000</div>
-      <div class="mobile-daily" style="display:none"><span>D1:26</span><span>D2:16</span><span>D3:23</span><span>D4:23</span><span>D5:9</span><span>D6:11</span></div>
+      <div class="product-name">쇼콜라 티셔츠</div>
+      <div class="metric daily-cell" style="width:36px;color:var(--text)">50</div><div class="metric daily-cell" style="width:36px;color:var(--text)">40</div><div class="metric daily-cell" style="width:36px;color:var(--text)">42</div><div class="metric daily-cell" style="width:36px;color:var(--text)">49</div><div class="metric daily-cell" style="width:36px;color:var(--text)">38</div><div class="metric daily-cell" style="width:36px;color:var(--text)">28</div><div class="metric daily-cell" style="width:36px;color:var(--text)">40</div>
+      <div class="metric cum-qty" style="width:46px;font-weight:700">287</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">6,314,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:50</span><span>D2:40</span><span>D3:42</span><span>D4:49</span><span>D5:38</span><span>D6:28</span><span>D7:40</span></div>
     </div><div class="table-row">
       <div class="rank bronze">3</div>
-      <div class="product-name">쇼콜라 티셔츠</div>
-      <div class="metric daily-cell" style="width:36px;color:var(--text)">50</div><div class="metric daily-cell" style="width:36px;color:var(--text)">40</div><div class="metric daily-cell" style="width:36px;color:var(--text)">42</div><div class="metric daily-cell" style="width:36px;color:var(--text)">49</div><div class="metric daily-cell" style="width:36px;color:var(--text)">38</div><div class="metric daily-cell" style="width:36px;color:var(--text)">28</div>
-      <div class="metric cum-qty" style="width:46px;font-weight:700">247</div>
-      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">5,434,000</div>
-      <div class="mobile-daily" style="display:none"><span>D1:50</span><span>D2:40</span><span>D3:42</span><span>D4:49</span><span>D5:38</span><span>D6:28</span></div>
+      <div class="product-name">디져트세트</div>
+      <div class="metric daily-cell" style="width:36px;color:var(--text)">26</div><div class="metric daily-cell" style="width:36px;color:var(--text)">16</div><div class="metric daily-cell" style="width:36px;color:var(--text)">23</div><div class="metric daily-cell" style="width:36px;color:var(--text)">23</div><div class="metric daily-cell" style="width:36px;color:var(--text)">9</div><div class="metric daily-cell" style="width:36px;color:var(--text)">11</div><div class="metric daily-cell" style="width:36px;color:var(--text)">10</div>
+      <div class="metric cum-qty" style="width:46px;font-weight:700">118</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">6,254,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:26</span><span>D2:16</span><span>D3:23</span><span>D4:23</span><span>D5:9</span><span>D6:11</span><span>D7:10</span></div>
     </div><div class="table-row">
       <div class="rank normal">4</div>
       <div class="product-name">제제_블루머</div>
-      <div class="metric daily-cell" style="width:36px;color:var(--text)">35</div><div class="metric daily-cell" style="width:36px;color:var(--text)">28</div><div class="metric daily-cell" style="width:36px;color:var(--text)">26</div><div class="metric daily-cell" style="width:36px;color:var(--text)">28</div><div class="metric daily-cell" style="width:36px;color:var(--text)">19</div><div class="metric daily-cell" style="width:36px;color:var(--text)">29</div>
-      <div class="metric cum-qty" style="width:46px;font-weight:700">165</div>
-      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">3,646,500</div>
-      <div class="mobile-daily" style="display:none"><span>D1:35</span><span>D2:28</span><span>D3:26</span><span>D4:28</span><span>D5:19</span><span>D6:29</span></div>
+      <div class="metric daily-cell" style="width:36px;color:var(--text)">35</div><div class="metric daily-cell" style="width:36px;color:var(--text)">28</div><div class="metric daily-cell" style="width:36px;color:var(--text)">26</div><div class="metric daily-cell" style="width:36px;color:var(--text)">28</div><div class="metric daily-cell" style="width:36px;color:var(--text)">19</div><div class="metric daily-cell" style="width:36px;color:var(--text)">29</div><div class="metric daily-cell" style="width:36px;color:var(--text)">24</div>
+      <div class="metric cum-qty" style="width:46px;font-weight:700">189</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">4,176,900</div>
+      <div class="mobile-daily" style="display:none"><span>D1:35</span><span>D2:28</span><span>D3:26</span><span>D4:28</span><span>D5:19</span><span>D6:29</span><span>D7:24</span></div>
     </div><div class="table-row">
       <div class="rank normal">5</div>
       <div class="product-name">셀리소피 세트</div>
-      <div class="metric daily-cell" style="width:36px;color:var(--text)">19</div><div class="metric daily-cell" style="width:36px;color:var(--text)">8</div><div class="metric daily-cell" style="width:36px;color:var(--text)">10</div><div class="metric daily-cell" style="width:36px;color:var(--text)">8</div><div class="metric daily-cell" style="width:36px;color:var(--text)">8</div><div class="metric daily-cell" style="width:36px;color:var(--text)">6</div>
-      <div class="metric cum-qty" style="width:46px;font-weight:700">59</div>
-      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">3,009,000</div>
-      <div class="mobile-daily" style="display:none"><span>D1:19</span><span>D2:8</span><span>D3:10</span><span>D4:8</span><span>D5:8</span><span>D6:6</span></div>
+      <div class="metric daily-cell" style="width:36px;color:var(--text)">19</div><div class="metric daily-cell" style="width:36px;color:var(--text)">8</div><div class="metric daily-cell" style="width:36px;color:var(--text)">10</div><div class="metric daily-cell" style="width:36px;color:var(--text)">8</div><div class="metric daily-cell" style="width:36px;color:var(--text)">8</div><div class="metric daily-cell" style="width:36px;color:var(--text)">6</div><div class="metric daily-cell" style="width:36px;color:var(--text)">7</div>
+      <div class="metric cum-qty" style="width:46px;font-weight:700">66</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">3,366,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:19</span><span>D2:8</span><span>D3:10</span><span>D4:8</span><span>D5:8</span><span>D6:6</span><span>D7:7</span></div>
     </div><div class="table-row">
       <div class="rank normal">6</div>
       <div class="product-name">보니 헤어밴드</div>
-      <div class="metric daily-cell" style="width:36px;color:var(--text)">40</div><div class="metric daily-cell" style="width:36px;color:var(--text)">25</div><div class="metric daily-cell" style="width:36px;color:var(--text)">31</div><div class="metric daily-cell" style="width:36px;color:var(--text)">41</div><div class="metric daily-cell" style="width:36px;color:var(--text)">31</div><div class="metric daily-cell" style="width:36px;color:var(--text)">18</div>
-      <div class="metric cum-qty" style="width:46px;font-weight:700">186</div>
-      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">2,976,000</div>
-      <div class="mobile-daily" style="display:none"><span>D1:40</span><span>D2:25</span><span>D3:31</span><span>D4:41</span><span>D5:31</span><span>D6:18</span></div>
+      <div class="metric daily-cell" style="width:36px;color:var(--text)">40</div><div class="metric daily-cell" style="width:36px;color:var(--text)">25</div><div class="metric daily-cell" style="width:36px;color:var(--text)">31</div><div class="metric daily-cell" style="width:36px;color:var(--text)">41</div><div class="metric daily-cell" style="width:36px;color:var(--text)">31</div><div class="metric daily-cell" style="width:36px;color:var(--text)">18</div><div class="metric daily-cell" style="width:36px;color:var(--text)">23</div>
+      <div class="metric cum-qty" style="width:46px;font-weight:700">209</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">3,344,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:40</span><span>D2:25</span><span>D3:31</span><span>D4:41</span><span>D5:31</span><span>D6:18</span><span>D7:23</span></div>
     </div><div class="table-row">
       <div class="rank normal">7</div>
       <div class="product-name">단단_baby</div>
-      <div class="metric daily-cell" style="width:36px;color:var(--text)">45</div><div class="metric daily-cell" style="width:36px;color:var(--text)">31</div><div class="metric daily-cell" style="width:36px;color:var(--text)">36</div><div class="metric daily-cell" style="width:36px;color:var(--text)">33</div><div class="metric daily-cell" style="width:36px;color:var(--text)">31</div><div class="metric daily-cell" style="width:36px;color:var(--text)">40</div>
-      <div class="metric cum-qty" style="width:46px;font-weight:700">216</div>
-      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">2,937,600</div>
-      <div class="mobile-daily" style="display:none"><span>D1:45</span><span>D2:31</span><span>D3:36</span><span>D4:33</span><span>D5:31</span><span>D6:40</span></div>
+      <div class="metric daily-cell" style="width:36px;color:var(--text)">45</div><div class="metric daily-cell" style="width:36px;color:var(--text)">31</div><div class="metric daily-cell" style="width:36px;color:var(--text)">36</div><div class="metric daily-cell" style="width:36px;color:var(--text)">33</div><div class="metric daily-cell" style="width:36px;color:var(--text)">31</div><div class="metric daily-cell" style="width:36px;color:var(--text)">40</div><div class="metric daily-cell" style="width:36px;color:var(--text)">26</div>
+      <div class="metric cum-qty" style="width:46px;font-weight:700">242</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">3,291,200</div>
+      <div class="mobile-daily" style="display:none"><span>D1:45</span><span>D2:31</span><span>D3:36</span><span>D4:33</span><span>D5:31</span><span>D6:40</span><span>D7:26</span></div>
     </div><div class="table-row">
       <div class="rank normal">8</div>
       <div class="product-name">미미쥬쥬 세트</div>
-      <div class="metric daily-cell" style="width:36px;color:var(--text)">14</div><div class="metric daily-cell" style="width:36px;color:var(--text)">9</div><div class="metric daily-cell" style="width:36px;color:var(--text)">14</div><div class="metric daily-cell" style="width:36px;color:var(--text)">18</div><div class="metric daily-cell" style="width:36px;color:var(--text)">8</div><div class="metric daily-cell" style="width:36px;color:var(--text)">6</div>
-      <div class="metric cum-qty" style="width:46px;font-weight:700">69</div>
-      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">2,697,900</div>
-      <div class="mobile-daily" style="display:none"><span>D1:14</span><span>D2:9</span><span>D3:14</span><span>D4:18</span><span>D5:8</span><span>D6:6</span></div>
+      <div class="metric daily-cell" style="width:36px;color:var(--text)">14</div><div class="metric daily-cell" style="width:36px;color:var(--text)">9</div><div class="metric daily-cell" style="width:36px;color:var(--text)">14</div><div class="metric daily-cell" style="width:36px;color:var(--text)">18</div><div class="metric daily-cell" style="width:36px;color:var(--text)">8</div><div class="metric daily-cell" style="width:36px;color:var(--text)">6</div><div class="metric daily-cell" style="width:36px;color:var(--text)">15</div>
+      <div class="metric cum-qty" style="width:46px;font-weight:700">84</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">3,284,400</div>
+      <div class="mobile-daily" style="display:none"><span>D1:14</span><span>D2:9</span><span>D3:14</span><span>D4:18</span><span>D5:8</span><span>D6:6</span><span>D7:15</span></div>
     </div><div class="table-row">
       <div class="rank normal">9</div>
       <div class="product-name">멜로디세트</div>
-      <div class="metric daily-cell" style="width:36px;color:var(--text)">14</div><div class="metric daily-cell" style="width:36px;color:var(--text)">16</div><div class="metric daily-cell" style="width:36px;color:var(--text)">17</div><div class="metric daily-cell" style="width:36px;color:var(--text)">15</div><div class="metric daily-cell" style="width:36px;color:var(--text)">11</div><div class="metric daily-cell" style="width:36px;color:var(--text)">14</div>
-      <div class="metric cum-qty" style="width:46px;font-weight:700">87</div>
-      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">2,262,000</div>
-      <div class="mobile-daily" style="display:none"><span>D1:14</span><span>D2:16</span><span>D3:17</span><span>D4:15</span><span>D5:11</span><span>D6:14</span></div>
+      <div class="metric daily-cell" style="width:36px;color:var(--text)">14</div><div class="metric daily-cell" style="width:36px;color:var(--text)">16</div><div class="metric daily-cell" style="width:36px;color:var(--text)">17</div><div class="metric daily-cell" style="width:36px;color:var(--text)">15</div><div class="metric daily-cell" style="width:36px;color:var(--text)">11</div><div class="metric daily-cell" style="width:36px;color:var(--text)">14</div><div class="metric daily-cell" style="width:36px;color:var(--text)">5</div>
+      <div class="metric cum-qty" style="width:46px;font-weight:700">92</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">2,392,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:14</span><span>D2:16</span><span>D3:17</span><span>D4:15</span><span>D5:11</span><span>D6:14</span><span>D7:5</span></div>
     </div><div class="table-row">
       <div class="rank normal">10</div>
-      <div class="product-name">비커밍세트</div>
-      <div class="metric daily-cell" style="width:36px;color:var(--text)">9</div><div class="metric daily-cell" style="width:36px;color:var(--text)">15</div><div class="metric daily-cell" style="width:36px;color:var(--text)">13</div><div class="metric daily-cell" style="width:36px;color:var(--text)">19</div><div class="metric daily-cell" style="width:36px;color:var(--text)">15</div><div class="metric daily-cell" style="width:36px;color:var(--text)">14</div>
-      <div class="metric cum-qty" style="width:46px;font-weight:700">85</div>
-      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">2,167,500</div>
-      <div class="mobile-daily" style="display:none"><span>D1:9</span><span>D2:15</span><span>D3:13</span><span>D4:19</span><span>D5:15</span><span>D6:14</span></div>
+      <div class="product-name">밀키 베이비 3종세트</div>
+      <div class="metric daily-cell" style="width:36px;color:var(--text)">0</div><div class="metric daily-cell" style="width:36px;color:var(--text)">0</div><div class="metric daily-cell" style="width:36px;color:var(--text)">0</div><div class="metric daily-cell" style="width:36px;color:var(--text)">2</div><div class="metric daily-cell" style="width:36px;color:var(--text)">15</div><div class="metric daily-cell" style="width:36px;color:var(--text)">11</div><div class="metric daily-cell" style="width:36px;color:var(--text)">18</div>
+      <div class="metric cum-qty" style="width:46px;font-weight:700">46</div>
+      <div class="metric cum-rev" style="width:80px;color:var(--accent-light)">2,392,000</div>
+      <div class="mobile-daily" style="display:none"><span>D1:0</span><span>D2:0</span><span>D3:0</span><span>D4:2</span><span>D5:15</span><span>D6:11</span><span>D7:18</span></div>
     </div>
   </div>
 
@@ -498,9 +513,9 @@
       <div class="margin-chunk" style="width:36%;background:linear-gradient(135deg,var(--green),#16a34a);color:#fff">마진 36%</div>
     </div>
     <div class="margin-legend">
-      <div class="margin-legend-item"><div class="legend-dot" style="background:var(--accent-light)"></div>누적 실결제: <strong>89,240,750원</strong></div>
-      <div class="margin-legend-item"><div class="legend-dot" style="background:var(--orange)"></div>수수료 차감 후: <strong>64,253,340원</strong></div>
-      <div class="margin-legend-item"><div class="legend-dot" style="background:var(--green)"></div>추정 순이익: <strong>32,126,670원</strong></div>
+      <div class="margin-legend-item"><div class="legend-dot" style="background:var(--accent-light)"></div>누적 실결제: <strong>103,464,350원</strong></div>
+      <div class="margin-legend-item"><div class="legend-dot" style="background:var(--orange)"></div>수수료 차감 후: <strong>74,494,332원</strong></div>
+      <div class="margin-legend-item"><div class="legend-dot" style="background:var(--green)"></div>추정 순이익: <strong>37,247,166원</strong></div>
     </div>
     <div style="margin-top:20px">
       <div style="font-size:13px;font-weight:600;color:var(--text-dim);margin-bottom:8px">일별 수수료 차감후 비교</div>
@@ -531,27 +546,31 @@
       <span style="color:var(--text-dim)">D6(3/24화)</span>
       <span>12,231,180</span>
       <span style="color:var(--orange)">8,806,449</span>
+    </div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px">
+      <span style="color:var(--text-dim)">D7(3/25수)</span>
+      <span>14,223,600</span>
+      <span style="color:var(--orange)">10,240,992</span>
     </div>
     </div>
   </div>
 
   <div class="action-section">
-    <div class="action-title">D7 (3/25 수) Action Items</div>
+    <div class="action-title">D8 (3/26 목) Action Items &mdash; FINAL DAY</div>
     <div class="action-list">
       <div class="action-item">
         <div class="action-num">01</div>
-        <h4>별별민소매 시리즈 메인 배치</h4>
-        <p>D6 신규 투입 즉시 베스트 진입. 별별민소매세트 18개 + 수트 9개. 여름 시즌 선점 수요. 전면 노출 확대.</p>
+        <h4>마지막 날 최대 매출</h4>
+        <p>목표 달성 완료! 마지막 날 추가 매출로 최종 실적 극대화. 세트 상품 + 사은품 뽑기 적극 안내로 객단가 끌어올리기.</p>
       </div>
       <div class="action-item">
         <div class="action-num">02</div>
-        <h4>1억 돌파 마지막 스퍼트</h4>
-        <p>남은 목표 1,076만. 일평균 실적(1,487만) 기준 내일 돌파 가능. 세트 상품 묶음 할인으로 객단가 끌어올리기.</p>
+        <h4>쇼콜라/미미쥬쥬/베티 빕 집중</h4>
+        <p>D7 급상승 3총사. 쇼콜라 +43%, 미미쥬쥬 +150%, 베티 빕 +82%. 전면 배치 유지 + 밀키 베이비 3종세트(+64%)도 연관 진열.</p>
       </div>
       <div class="action-item">
         <div class="action-num">03</div>
-        <h4>제제/단단 시리즈 집중</h4>
-        <p>제제_블루머 +10, 단단_baby +9로 D6 급상승. 꾸준한 수요 확인. 연관 상품(보넷, 터번모자) 함께 진열.</p>
+        <h4>자사몰 전환 유도</h4>
+        <p>마지막 날 재고 집중 소진 + 자사몰 안내 카드 배포. QR코드, 인스타그램 팔로우 안내로 팝업 고객을 온라인 단골로 전환.</p>
       </div>
     </div>
   </div>
@@ -559,7 +578,7 @@
 </div>
 
 <div class="footer">
-  피카부 팝업 대시보드 &middot; 데이터 기준: 2026.03.24 22:11 &middot; 실결제(총결제액) 기준 &middot; E200 직영매장 기준<br>
+  피카부 팝업 대시보드 &middot; 데이터 기준: 2026.03.25 20:58 &middot; 실결제(총결제액) 기준 &middot; E200 직영매장 기준<br>
   수수료율 28% &middot; 원가율은 추정치(36%)
 </div>
 
